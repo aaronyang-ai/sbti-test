@@ -14,7 +14,7 @@ export function calculateDimensionScores(answers: UserAnswers, questions: { id: 
     if (answerIndex !== undefined && question.options[answerIndex]) {
       const optionScores = question.options[answerIndex].scores;
       DIMENSION_IDS.forEach(dim => {
-        if (optionScores[dim]) {
+        if (optionScores[dim] !== undefined) {
           scores[dim] += optionScores[dim];
         }
       });
@@ -52,30 +52,24 @@ export function matchPersonality(
   personalities: Personality[],
   hiddenTriggered: boolean = false
 ): MatchResult {
-  const standardPersonalities = hiddenTriggered 
-    ? personalities.filter(p => p.type !== 'fallback')
-    : personalities.filter(p => p.type !== 'standard');
+  let candidatePersonalities: Personality[];
 
-  let bestMatch: Personality = standardPersonalities[0];
-  let bestSimilarity = 0;
+  if (hiddenTriggered) {
+    candidatePersonalities = personalities.filter(p => p.type !== 'fallback' && p.type !== 'hidden');
+  } else {
+    candidatePersonalities = personalities.filter(p => p.type === 'standard');
+  }
 
-  standardPersonalities.forEach(personality => {
+  let bestMatch: Personality = candidatePersonalities[0];
+  let bestSimilarity = -1;
+
+  candidatePersonalities.forEach(personality => {
     const similarity = calculateSimilarity(userVector, personality.vector);
     if (similarity > bestSimilarity) {
       bestSimilarity = similarity;
       bestMatch = personality;
     }
   });
-
-  if (bestSimilarity < 0.6 && !hiddenTriggered) {
-    const fallbackPersonality = personalities.find(p => p.type === 'fallback');
-    if (fallbackPersonality) {
-      return {
-        personality: fallbackPersonality,
-        similarity: bestSimilarity
-      };
-    }
-  }
 
   if (hiddenTriggered) {
     const drunkPersonality = personalities.find(p => p.id === 'DRUN-K');
