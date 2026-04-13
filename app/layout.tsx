@@ -18,9 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" className="h-full">
-      <body className="min-h-full flex flex-col bg-slate-950 text-white antialiased">
+      <body className="min-h-full flex flex-col bg-[#FDFBF7] text-[#1A1A2E] antialiased">
         {children}
-        <footer className="py-6 text-center text-slate-500 text-sm">
+        <footer className="py-6 text-center text-[#9CA3AF] text-sm bg-[#F7F5F0]">
           本测试为AI重制版，灵感来自B站@蛆肉儿串儿的SBTI测试。仅供娱乐，请勿当真。Powered by MonkeyCode × MiniMax-M2.7
         </footer>
       </body>

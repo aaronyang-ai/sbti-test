@@ -2,68 +2,95 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center px-6 py-12 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-radial" />
+    <main className="min-h-screen relative overflow-hidden">
+      {/* 背景装饰 */}
+      <div className="fixed inset-0 bg-gradient-warm pointer-events-none" />
       
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl animate-float stagger-2" />
-      <div className="absolute top-1/2 right-1/3 w-48 h-48 bg-violet-500/10 rounded-full blur-3xl animate-float stagger-3" />
+      {/* 漂浮装饰圆圈 */}
+      <div className="fixed top-20 left-10 w-32 h-32 rounded-full bg-gradient-to-br from-coral/10 to-amber/10 animate-float" />
+      <div className="fixed top-40 right-20 w-24 h-24 rounded-full bg-gradient-to-br from-mint/10 to-lavender/10 animate-float delay-200" />
+      <div className="fixed bottom-40 left-1/4 w-20 h-20 rounded-full bg-gradient-to-br from-amber/10 to-coral/10 animate-float delay-400" />
+      <div className="fixed bottom-20 right-1/3 w-16 h-16 rounded-full bg-gradient-to-br from-lavender/10 to-mint/10 animate-float delay-300" />
 
-      <div className="relative z-10 text-center max-w-2xl mx-auto">
+      {/* 主要内容 */}
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-12">
+        {/* 顶部标签 */}
         <div className="mb-8 animate-fade-in">
-          <span className="inline-block px-4 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-sm font-medium mb-6">
-            灵感来自 B站 @蛆肉儿串儿
+          <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-coral/20 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-coral animate-pulse-soft" />
+            <span className="text-sm font-medium text-coral">灵感来自 B站 @蛆肉儿串儿</span>
           </span>
         </div>
 
-        <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight mb-6 animate-fade-in-up stagger-1">
-          <span className="text-white">SBTI </span>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600">
+        {/* 大标题 */}
+        <div className="text-center mb-6">
+          <h1 className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight mb-4 animate-fade-in-up">
+            <span className="text-gradient-coral-amber">SBTI</span>
+          </h1>
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary tracking-tight animate-fade-in-up delay-100">
             人格测试
-          </span>
-        </h1>
+          </h2>
+        </div>
 
-        <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-emerald-400 mb-4 animate-fade-in-up stagger-2 font-heading">
+        {/* 副标题 */}
+        <p className="text-lg sm:text-xl text-text-secondary mb-4 font-body animate-fade-in-up delay-200">
           AI 重制版
         </p>
 
-        <div className="flex items-center justify-center gap-2 text-slate-400 mb-12 animate-fade-in-up stagger-3">
-          <span className="w-8 h-px bg-gradient-to-r from-transparent to-slate-500" />
-          <span className="text-sm sm:text-base">31道题 · 15个维度 · 27种人格</span>
-          <span className="w-8 h-px bg-gradient-to-l from-transparent to-slate-500" />
+        {/* 统计数据 */}
+        <div className="flex items-center gap-3 mb-12 animate-fade-in-up delay-300">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-border">
+            <span className="text-2xl font-display font-bold text-coral">31</span>
+            <span className="text-sm text-text-secondary">道题</span>
+          </div>
+          <div className="w-px h-6 bg-border" />
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-border">
+            <span className="text-2xl font-display font-bold text-mint">15</span>
+            <span className="text-sm text-text-secondary">个维度</span>
+          </div>
+          <div className="w-px h-6 bg-border" />
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-border">
+            <span className="text-2xl font-display font-bold text-lavender">27</span>
+            <span className="text-sm text-text-secondary">种人格</span>
+          </div>
         </div>
 
-        <div className="flex flex-col gap-5 items-center animate-fade-in-up stagger-4">
+        {/* 按钮组 */}
+        <div className="flex flex-col gap-4 items-center animate-fade-in-up delay-400">
           <Link
             href="/test"
-            className="btn-primary group inline-flex items-center gap-3 px-10 py-5 text-lg font-bold rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 hover:from-amber-400 hover:to-amber-500 shadow-lg shadow-amber-500/30 glow-gold"
+            className="btn-primary group text-lg"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
             开始测试
-            <svg className="w-5 h-5 opacity-70 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
 
           <Link
             href="/types"
-            className="group inline-flex items-center gap-2 px-6 py-3 text-base font-medium rounded-full border border-slate-700 text-slate-400 hover:text-white hover:bg-slate-800/50 hover:border-slate-600 transition-all duration-300"
+            className="btn-secondary"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
             </svg>
-            浏览全部人格图鉴
+            浏览人格图鉴
           </Link>
         </div>
 
-        <div className="mt-16 animate-fade-in-up stagger-5">
-          <p className="text-xs text-slate-600">
+        {/* 底部提示 */}
+        <div className="mt-16 text-center animate-fade-in delay-500">
+          <p className="text-sm text-text-muted">
             纯前端应用 · 数据本地计算 · 无需登录
           </p>
         </div>
       </div>
+
+      {/* 底部装饰 */}
+      <div className="fixed bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-bg-primary to-transparent pointer-events-none" />
     </main>
   );
 }
