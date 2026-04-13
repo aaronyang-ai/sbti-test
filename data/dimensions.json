@@ -1,0 +1,94 @@
+{
+  "dimensions": [
+    {
+      "id": "S1",
+      "name": "自我稳定度",
+      "model": "自我模型",
+      "description": "对自己的评价是否稳定，还是经常自我怀疑"
+    },
+    {
+      "id": "S2",
+      "name": "自我认知度",
+      "model": "自我模型",
+      "description": "是否清楚自己是什么样的人"
+    },
+    {
+      "id": "S3",
+      "name": "核心驱动力",
+      "model": "自我模型",
+      "description": "内心有没有特别要紧的东西在驱动自己"
+    },
+    {
+      "id": "E1",
+      "name": "依恋安全感",
+      "model": "情感模型",
+      "description": "在亲密关系里容易焦虑还是安心"
+    },
+    {
+      "id": "E2",
+      "name": "情感投入度",
+      "model": "情感模型",
+      "description": "感情上投入多还是保留多"
+    },
+    {
+      "id": "E3",
+      "name": "独立空间需求",
+      "model": "情感模型",
+      "description": "是否需要大量独处时间"
+    },
+    {
+      "id": "A1",
+      "name": "世界观倾向",
+      "model": "态度模型",
+      "description": "看世界偏乐观还是悲观"
+    },
+    {
+      "id": "A2",
+      "name": "规则态度",
+      "model": "态度模型",
+      "description": "守规矩还是爱打破规则"
+    },
+    {
+      "id": "A3",
+      "name": "意义追寻",
+      "model": "态度模型",
+      "description": "觉得人生需要意义还是活着就行"
+    },
+    {
+      "id": "Ac1",
+      "name": "进攻性",
+      "model": "行动驱力模型",
+      "description": "做事偏主动进攻还是被动防御"
+    },
+    {
+      "id": "Ac2",
+      "name": "决策果断度",
+      "model": "行动驱力模型",
+      "description": "拍板快还是纠结"
+    },
+    {
+      "id": "Ac3",
+      "name": "执行力",
+      "model": "行动驱力模型",
+      "description": "计划能不能落地"
+    },
+    {
+      "id": "So1",
+      "name": "社交主动性",
+      "model": "社交模型",
+      "description": "主动找人还是等人来找"
+    },
+    {
+      "id": "So2",
+      "name": "边界感",
+      "model": "社交模型",
+      "description": "边界清晰还是模糊"
+    },
+    {
+      "id": "So3",
+      "name": "真实度",
+      "model": "社交模型",
+      "description": "在不同关系里表现是否一致"
+    }
+  ]
+}
